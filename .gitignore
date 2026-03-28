@@ -1,0 +1,13 @@
+src/api.o
+src/dumper.o
+src/emitter.o
+src/implicit.o
+src/loader.o
+src/parser.o
+src/r_emit.o
+src/r_ext.o
+src/r_parse.o
+src/reader.o
+src/scanner.o
+src/writer.o
+src/yaml.so

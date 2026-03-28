@@ -601,6 +601,8 @@ static int emit_object(
             case LGLSXP:
               s_new_obj = Ryaml_format_logical(s_obj);
               break;
+            default:
+              break;
           }
 
           PROTECT(s_new_obj);
@@ -796,7 +798,7 @@ static int emit_object(
       break;
 
     default:
-      PROTECT(s_type = type2str(TYPEOF(s_obj)));
+      PROTECT(s_type = Rf_type2str_nowarn(TYPEOF(s_obj)));
       PROTECT(s_classes = getAttrib(s_obj, R_ClassSymbol));
       if (TYPEOF(s_classes) != STRSXP || LENGTH(s_classes) == 0) {
         Ryaml_set_error_msg("don't know how to emit object of type: '%s'\n", CHAR(s_type));
